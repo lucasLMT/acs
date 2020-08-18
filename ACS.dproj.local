@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/08/09 12:14:44.000.967,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/09 12:15:56.000.385,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2020/08/09 14:02:35.000.463,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\ACS.dproj=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/08/09 14:03:17.000.099,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\mainForm.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/09 14:03:17.000.099,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\mainForm.dfm=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/08/09 14:03:29.000.618,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\datamodule.dfm=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2020/08/09 14:03:29.000.618,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\datamodule.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2020/08/09 14:11:36.000.842,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\datamodulecadastros.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\datamodule.pas</Transaction>
+    <Transaction>2020/08/09 14:11:36.000.842,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\datamodulecadastros.dfm=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\datamodule.dfm</Transaction>
+    <Transaction>2020/08/09 14:18:07.000.517,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2020/08/10 20:33:17.000.503,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/10 20:33:31.000.415,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uTanqueModel.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/10 20:42:50.000.449,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/10 20:43:03.000.327,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uTanqueController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/11 20:20:48.000.115,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/14 20:31:08.000.362,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 20:31:25.000.996,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uAtributos.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 20:58:11.000.990,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 20:58:22.000.635,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uCombustivel.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 21:00:13.000.324,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 21:00:20.000.706,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uBomba.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 21:02:41.000.473,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 21:02:47.000.262,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uImposto.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/08/14 21:09:20.000.948,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/14 21:10:05.000.195,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\data\uPersistencia.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/15 10:44:29.000.489,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\ACS.dproj=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\ACS.dproj</Transaction>
+    <Transaction>2020/08/16 18:30:15.832,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:30:29.691,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uBombaController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:47:06.246,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:47:22.236,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uCombustivelController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:49:23.784,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:49:38.816,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uImpostoController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 14:23:28.584,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 14:23:43.707,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uAbastecimento.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 18:01:55.203,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 18:02:08.917,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uAbastecimentoController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="controller"/>
+    <File Path="controller\uAbastecimentoController.pas"/>
+    <File Path="controller\uBombaController.pas"/>
+    <File Path="controller\uCombustivelController.pas"/>
+    <File Path="controller\uImpostoController.pas"/>
+    <File Path="controller\uTanqueController.pas"/>
+    <File Path="data"/>
+    <File Path="data\uPersistencia.pas"/>
+    <File Path="model"/>
+    <File Path="model\uAbastecimento.pas"/>
+    <File Path="model\uAtributos.pas"/>
+    <File Path="model\uBomba.pas"/>
+    <File Path="model\uCombustivel.pas"/>
+    <File Path="model\uImposto.pas"/>
+    <File Path="model\uTanqueModel.pas"/>
+    <File Path="datamodulecadastros.pas"/>
+    <File Path="datamodulecadastros.dfm"/>
+    <File Path="mainForm.pas"/>
+    <File Path="mainForm.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>
