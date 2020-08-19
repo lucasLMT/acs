@@ -9,61 +9,44 @@ object DataModule2: TDataModule2
       'Password=masterkey'
       'MonitorBy=custom'
       'DriverID=FB')
+    Connected = True
     Left = 32
-    Top = 24
-  end
-  object FDQueryCombustivel: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      'select * from combustivel')
-    Left = 112
-    Top = 24
-  end
-  object DataSourceCombustivel: TDataSource
-    DataSet = FDQueryCombustivel
-    Left = 184
     Top = 24
   end
   object FDMoniCustomClientLink1: TFDMoniCustomClientLink
     Left = 824
     Top = 24
   end
-  object DataSourceTanque: TDataSource
-    DataSet = FDQueryTanque
-    Left = 184
-    Top = 72
-  end
-  object FDQueryTanque: TFDQuery
+  object QueryRelatorioVenda: TFDQuery
     Connection = FDConnection1
     SQL.Strings = (
-      'select * from tanque')
+      
+        'SELECT a.DATA, a.HORA, b.NOME, a.QUANTIDADE, a.TOTAL, a.VALORIMP' +
+        'OSTO '
+      'FROM ABASTECIMENTO a'
+      'LEFT JOIN BOMBA b on (a.BOMBA = b.ID) '
+      
+        'WHERE DATA BETWEEN :datainicial AND :datafinal AND BOMBA = coale' +
+        'sce(:bomba, BOMBA)')
     Left = 112
-    Top = 72
-  end
-  object DataSourceImposto: TDataSource
-    DataSet = FDQueryImposto
-    Left = 184
-    Top = 120
-  end
-  object FDQueryImposto: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      'select * from imposto'
-      '')
-    Left = 112
-    Top = 120
-  end
-  object FDQueryBomba: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      'select * from bomba'
-      '')
-    Left = 112
-    Top = 168
-  end
-  object DataSourceBomba: TDataSource
-    DataSet = FDQueryBomba
-    Left = 184
-    Top = 168
+    Top = 24
+    ParamData = <
+      item
+        Name = 'DATAINICIAL'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'DATAFINAL'
+        DataType = ftDate
+        ParamType = ptInput
+      end
+      item
+        Name = 'BOMBA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
   end
 end

@@ -27,17 +27,19 @@
     <Transaction>2020/08/14 21:09:20.000.948,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/08/14 21:10:05.000.195,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\data\uPersistencia.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/08/15 10:44:29.000.489,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\ACS.dproj=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\ACS.dproj</Transaction>
-    <Transaction>2020/08/16 18:30:15.832,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/16 18:30:29.691,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uBombaController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/16 18:47:06.246,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/16 18:47:22.236,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uCombustivelController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/16 18:49:23.784,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/16 18:49:38.816,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uImpostoController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/17 14:23:28.584,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/17 14:23:43.707,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uAbastecimento.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/17 18:01:55.203,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/08/17 18:02:08.917,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uAbastecimentoController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <Transaction>2020/08/16 18:30:15.000.832,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:30:29.000.691,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uBombaController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:47:06.000.246,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:47:22.000.236,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uCombustivelController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:49:23.000.784,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/16 18:49:38.000.816,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uImpostoController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 14:23:28.000.584,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 14:23:43.000.707,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\model\uAbastecimento.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 18:01:55.000.203,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/17 18:02:08.000.917,C:\Users\lucas\Documents\Embarcadero\Studio\Projects\controller\uAbastecimentoController.pas=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/18 20:30:58.000.299,=C:\Users\lucas\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="controller"/>
     <File Path="controller\uAbastecimentoController.pas"/>
     <File Path="controller\uBombaController.pas"/>

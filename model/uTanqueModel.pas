@@ -14,7 +14,7 @@ type
     FNome: String;
     FCombustivel: integer;
     procedure SetNome(const Value: string);
-  published
+  public
     [TCampo('ID', 0, true)]
     //[TChavePrimaria('ID')]
     property Id: integer read FID write FID;

@@ -13,7 +13,7 @@ type
     FID: Integer;
     FNome: String;
     FAliquota: real;
-  published
+  public
     [TCampo('ID', 0, true)]
     //[TChavePrimaria('ID')]
     property Id: integer read FID write FID;

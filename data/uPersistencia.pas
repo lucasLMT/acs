@@ -103,8 +103,7 @@ var
 	tipo: TRttiType;
 	propriedade: TRttiProperty;
 	atributo: TCustomAttribute;
-	sqlSelect, sqlTabela, filtroSql: String;
-  index: Integer;
+	sqlSelect, sqlTabela: String;
 begin
 	try
 		contexto := TRttiContext.Create;
@@ -174,7 +173,6 @@ var
 	propriedade: TRttiProperty;
 	atributo: TCustomAttribute;
 	sql, filtroSql: String;
-  index: Integer;
 begin
 	try
 		contexto := TRttiContext.Create;
@@ -239,7 +237,6 @@ var
 	propriedade: TRttiProperty;
 	atributo: TCustomAttribute;
 	sql, filtroSql: String;
-  index: Integer;
 begin
 	try
 		contexto := TRttiContext.Create;

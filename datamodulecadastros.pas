@@ -13,19 +13,10 @@ uses
 type
   TDataModule2 = class(TDataModule)
     FDConnection1: TFDConnection;
-    FDQueryCombustivel: TFDQuery;
-    DataSourceCombustivel: TDataSource;
     FDMoniCustomClientLink1: TFDMoniCustomClientLink;
-    DataSourceTanque: TDataSource;
-    FDQueryTanque: TFDQuery;
-    DataSourceImposto: TDataSource;
-    FDQueryImposto: TFDQuery;
-    FDQueryBomba: TFDQuery;
-    DataSourceBomba: TDataSource;
+    QueryRelatorioVenda: TFDQuery;
   private
     { Private declarations }
-    procedure PesquisarTanque(Nome: string);
-    function CarregarDadosTanque(oTanque: TTanque; id: string): Boolean;
   public
     { Public declarations }
   end;
@@ -42,32 +33,6 @@ implementation
 
 
 { TDataModule2 }
-
-function TDataModule2.CarregarDadosTanque(oTanque: TTanque; id: string): Boolean;
-begin
-  if FDQueryTanque.Active then
-    FDQueryTanque.Close;
-
-  FDQueryTanque.SQL.Add('select * from tanque where (id = :id)');
-  FDQueryTanque.ParamByName('id').AsString := id;
-  FDQueryTanque.Open;
-
-  oTanque.id := FDQueryTanque.FieldByName('id').AsInteger;
-  oTanque.nome := FDQueryTanque.FieldByName('nome').AsString;
-  oTanque.combustivel := FDQueryTanque.FieldByName('combustivel').AsInteger;
-
-end;
-
-procedure TDataModule2.PesquisarTanque(Nome: string);
-begin
-  if FDQueryTanque.Active then
-    FDQueryTanque.Close;
-
-  FDQueryTanque.SQL.Add('select * from tanque where (nome like :nome)');
-  FDQueryTanque.ParamByName('nome').AsString := Nome;
-  FDQueryTanque.Open();
-  FDQueryTanque.First;
-end;
 
 
 end.

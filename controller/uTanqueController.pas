@@ -29,8 +29,6 @@ begin
 end;
 
 function TTanqueController.CarregaCombo(pObjeto: TObject; pCampo: string): TClientDataSet;
-var
-  cds: TClientDataSet;
 begin
   Result := TPersistencia.CarregaLookupChaveEstrangeira(pObjeto, pCampo);
 end;

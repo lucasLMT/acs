@@ -8,7 +8,8 @@ uses
   Vcl.DBGrids, Vcl.ComCtrls, Vcl.DBActns, System.Actions, Vcl.ActnList,
   Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls, FireDAC.Stan.Def,
   FireDAC.VCLUI.Wait, FireDAC.Phys.IBWrapper, FireDAC.Phys.IBBase,
-  FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.FBDef, FireDAC.Phys.FB;
+  FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.FBDef, FireDAC.Phys.FB,
+  frxClass, frxDBSet;
 
 type
   TForm1 = class(TForm)
@@ -134,6 +135,8 @@ type
     Label29: TLabel;
     dtRelVendaDataFinal: TDateTimePicker;
     btnRelVendaGerar: TButton;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
     procedure tsBombaShow(Sender: TObject);
     procedure tsCombustivelShow(Sender: TObject);
     procedure tsImpostoShow(Sender: TObject);
@@ -204,7 +207,7 @@ implementation
 uses datamodulecadastros, FireDAC.Comp.Client, inifiles, IOUtils, uTanqueModel,
   uPersistencia, uTanqueController, uCombustivel, DBClient,
   uCombustivelController, uImposto, uImpostoController, uBomba,
-  uBombaController, uAbastecimento, uAbastecimentoController;
+  uBombaController, uAbastecimento, uAbastecimentoController, System.UITypes;
 
 procedure TForm1.mnConfigBackupClick(Sender: TObject);
 begin
@@ -272,7 +275,6 @@ var
   impostoController: TImpostoController;
   impostos: TClientDataSet;
   sError: string;
-  dataCorrente: TDate;
 begin
   abastecimento := TAbastecimento.Create;
   abastecimentoController := TAbastecimentoController.Create;
@@ -309,7 +311,7 @@ var
   tanqueController: TTanqueController;
   combustivel: TCombustivel;
   combustivelController: TCombustivelController;
-  idBomba, idTanque: Integer;
+  idBomba: Integer;
   sError: string;
 begin
   bombaController := TBombaController.Create;
@@ -405,21 +407,27 @@ var
   bombaId: Integer;
   dataInicial, dataFinal, sError: string;
 begin
-  abastecimento := TAbastecimento.Create;
-  abastecimentoController := TAbastecimentoController.Create;
+  bombaId := -1;
+  if cbRelVendaBomba.ItemIndex <> -1 then
+    bombaId := Integer(cbRelVendaBomba.Items.Objects[cbRelVendaBomba.ItemIndex]);
 
-  bombaId := Integer(cbRelVendaBomba.Items.Objects[cbRelVendaBomba.ItemIndex]);
   dataInicial := FormatDateTime('mm/dd/yyyy', dtRelVendaDataInicial.DateTime);
   dataFinal := FormatDateTime('mm/dd/yyyy', dtRelVendaDataFinal.DateTime);
 
-  abastecimentos := abastecimentoController.ConsultarComWhere(abastecimento, bombaId, dataInicial,
-                                                              dataFinal, sError);
-  if sError <> EmptyStr then
-    ShowMessage('Erro ao realizar consulta.' + #13 + sError)
-  else
+  with datamodulecadastros.DataModule2.QueryRelatorioVenda do
   begin
+    Close;
+    Params.ClearValues();
+    if bombaId <> -1 then
+      ParamByName('BOMBA').AsInteger := bombaId;
 
+    ParamByName('DATAINICIAL').AsString := dataInicial;
+    ParamByName('DATAFINAL').AsString := dataFinal;
+    Open();
   end;
+
+  frxReport1.ShowReport;
+
 end;
 
 procedure TForm1.btnRestoreClick(Sender: TObject);
@@ -503,7 +511,6 @@ procedure TForm1.btnBombaConsultaClick(Sender: TObject);
 var
   bomba: TBomba;
   source: TDataSource;
-  conexao: TFDConnection;
   bombaController: TBombaController;
   sError: string;
 begin
@@ -625,7 +632,6 @@ procedure TForm1.btnImpostoConsultaClick(Sender: TObject);
 var
   imposto: TImposto;
   source: TDataSource;
-  conexao: TFDConnection;
   impostoController: TImpostoController;
   sError: string;
 begin
@@ -750,7 +756,6 @@ procedure TForm1.btnCombustivelConsultaClick(Sender: TObject);
 var
   combustivel: TCombustivel;
   source: TDataSource;
-  conexao: TFDConnection;
   combustivelController: TCombustivelController;
   sError: string;
 begin
@@ -966,7 +971,6 @@ procedure TForm1.btnConsultarTanqueClick(Sender: TObject);
 var
   tanque: TTanque;
   source: TDataSource;
-  conexao: TFDConnection;
   tanqueController: TTanqueController;
   sError: string;
 begin
@@ -999,7 +1003,6 @@ procedure TForm1.FormShow(Sender: TObject);
 var
   iniFile: TIniFile;
   conexao: TFDConnection;
-  path, user, senha: String;
 begin
   if FileExists(ExtractFileDir(ParamStr(0)) + '\config\database.ini') then
   begin
@@ -1024,6 +1027,11 @@ begin
     finally
       FreeAndNil(iniFile);
     end;
+  end
+  else
+  begin
+    pgPrincipal.ActivePageIndex := 4;
+    ShowMessage('O Banco de dados deve ser configurado.');
   end;
 end;
 procedure TForm1.mnCadImpostosClick(Sender: TObject);

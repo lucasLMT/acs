@@ -17,7 +17,7 @@ type
     FHora: String;
     FTotal: double;
     FValorImposto: double;
-  published
+  public
     [TCampo('ID', 0, true)]
     //[TChavePrimaria('ID')]
     property Id: integer read FID write FID;
