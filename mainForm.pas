@@ -112,7 +112,6 @@ type
     btnOpenDialogRestore: TButton;
     tePathRestoreFile: TEdit;
     btnRestore: TButton;
-    mePrompt: TMemo;
     tsVenda: TTabSheet;
     Label5: TLabel;
     cbVendaBomba: TComboBox;
@@ -137,6 +136,7 @@ type
     btnRelVendaGerar: TButton;
     frxReport1: TfrxReport;
     frxDBDataset1: TfrxDBDataset;
+    mePrompt: TMemo;
     procedure tsBombaShow(Sender: TObject);
     procedure tsCombustivelShow(Sender: TObject);
     procedure tsImpostoShow(Sender: TObject);
@@ -187,6 +187,10 @@ type
     procedure mnAbastecerClick(Sender: TObject);
     procedure tsRelVendasShow(Sender: TObject);
     procedure btnRelVendaGerarClick(Sender: TObject);
+    procedure mnRelVendasClick(Sender: TObject);
+    procedure tsBackupShow(Sender: TObject);
+    procedure tsRelVendasContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
   private
     { Private declarations }
     procedure AfterScrollTanqueHandler(ADataSet : TDataSet);
@@ -207,7 +211,8 @@ implementation
 uses datamodulecadastros, FireDAC.Comp.Client, inifiles, IOUtils, uTanqueModel,
   uPersistencia, uTanqueController, uCombustivel, DBClient,
   uCombustivelController, uImposto, uImpostoController, uBomba,
-  uBombaController, uAbastecimento, uAbastecimentoController, System.UITypes;
+  uBombaController, uAbastecimento, uAbastecimentoController, System.UITypes,
+  FireDAC.Stan.Param;
 
 procedure TForm1.mnConfigBackupClick(Sender: TObject);
 begin
@@ -217,6 +222,11 @@ end;
 procedure TForm1.mnConfigBancoClick(Sender: TObject);
 begin
   pgPrincipal.ActivePageIndex := 4;
+end;
+
+procedure TForm1.mnRelVendasClick(Sender: TObject);
+begin
+  pgPrincipal.ActivePageIndex := 7;
 end;
 
 {$Region 'Banco de dados'}
@@ -233,6 +243,7 @@ begin
     iniFile.WriteString('DATABASE', 'PATH', tePath.Text);
     iniFile.WriteString('DATABASE', 'USER', teUsuario.Text);
     iniFile.WriteString('DATABASE', 'PASSWORD', teSenha.Text);
+    ShowMessage('Configurações do banco gravadas com sucesso.');
   finally
     FreeAndNil(iniFile);
   end;
@@ -292,7 +303,7 @@ begin
   impostos.First;
   while not impostos.Eof do
   begin
-    abastecimento.ValorImposto := abastecimento.ValorImposto + abastecimento.Total * impostos.FieldByName('ALIQUOTA').AsFloat / 100;
+    abastecimento.ValorImposto := abastecimento.ValorImposto + StrToFloat(teVendaTotal.Text) * impostos.FieldByName('ALIQUOTA').AsFloat / 100;
     impostos.Next;
   end;
 
@@ -401,11 +412,8 @@ end;
 
 procedure TForm1.btnRelVendaGerarClick(Sender: TObject);
 var
-  abastecimento: TAbastecimento;
-  abastecimentoController: TAbastecimentoController;
-  abastecimentos: TClientDataSet;
   bombaId: Integer;
-  dataInicial, dataFinal, sError: string;
+  dataInicial, dataFinal: string;
 begin
   bombaId := -1;
   if cbRelVendaBomba.ItemIndex <> -1 then
@@ -441,7 +449,7 @@ begin
     conexao.Close;
 
   FDPhysFBDriverLink1.DriverID := 'FB';
-  FDPhysFBDriverLink1.VendorLib := 'C:\Users\lucas\Documents\Embarcadero\Studio\Projects\fbclient.dll';
+  FDPhysFBDriverLink1.VendorLib := 'fbclient.dll';
 
   FDIBRestore.DriverLink := FDPhysFBDriverLink1;
   FDIBRestore.UserName := conexao.Params.UserName;
@@ -459,7 +467,8 @@ begin
   FDIBRestore.Database := ExtractFileDir(ParamStr(0)) + '\database\posto.fdb';
   FDIBRestore.Restore;
 
-  MessageDlg('Restauração realizada com sucesso!', mtInformation, [mbOK], 0);
+  MessageDlg('Restauração realizada com sucesso!' + #13 +
+             'Path: ' + FDIBRestore.Database, mtInformation, [mbOK], 0);
 end;
 
 procedure TForm1.btnBackupClick(Sender: TObject);
@@ -473,7 +482,7 @@ begin
     conexao.Close;
 
   FDPhysFBDriverLink1.DriverID := 'FB';
-  FDPhysFBDriverLink1.VendorLib := 'C:\Users\lucas\Documents\Embarcadero\Studio\Projects\fbclient.dll';
+  FDPhysFBDriverLink1.VendorLib := 'fbclient.dll';
 
   FDIBackup.DriverLink := FDPhysFBDriverLink1;
   FDIBackup.UserName := conexao.Params.UserName;
@@ -1003,7 +1012,11 @@ procedure TForm1.FormShow(Sender: TObject);
 var
   iniFile: TIniFile;
   conexao: TFDConnection;
+  i: Integer;
 begin
+  for i := 0 to pgPrincipal.PageCount - 1 do
+    pgPrincipal.Pages[i].TabVisible := false;
+
   if FileExists(ExtractFileDir(ParamStr(0)) + '\config\database.ini') then
   begin
     iniFile := TIniFile.Create(ExtractFileDir(ParamStr(0)) + '\config\database.ini');
@@ -1050,6 +1063,11 @@ begin
     teVendaQuantidade.Text := FloatToStrF(StrToFloat(total) / StrToFloat(teVendaPreco.Text), ffFixed, 16, 4);
 end;
 
+procedure TForm1.tsBackupShow(Sender: TObject);
+begin
+  mePrompt.Lines.Clear;
+end;
+
 procedure TForm1.tsBombaShow(Sender: TObject);
 var
   bombaController: TBombaController;
@@ -1073,12 +1091,18 @@ end;
 
 procedure TForm1.tsCombustivelShow(Sender: TObject);
 begin
-  //datamodulecadastros.DataModule2.FDQueryCombustivel.Open;
+  Form1.FormShow(Self);
 end;
 
 procedure TForm1.tsImpostoShow(Sender: TObject);
 begin
-  //datamodulecadastros.DataModule2.FDQueryImposto.Open;
+  Form1.FormShow(Self);
+end;
+
+procedure TForm1.tsRelVendasContextPopup(Sender: TObject; MousePos: TPoint;
+  var Handled: Boolean);
+begin
+  Form1.FormShow(Self);
 end;
 
 procedure TForm1.tsRelVendasShow(Sender: TObject);

@@ -27,7 +27,7 @@ object Form1: TForm1
     Top = 0
     Width = 791
     Height = 464
-    ActivePage = tsBanco
+    ActivePage = tsVenda
     Align = alClient
     TabOrder = 1
     object tsTanque: TTabSheet
@@ -665,6 +665,7 @@ object Form1: TForm1
     object tsBackup: TTabSheet
       Caption = 'Backup'
       ImageIndex = 5
+      OnShow = tsBackupShow
       object Label22: TLabel
         Left = 16
         Top = 16
@@ -829,6 +830,7 @@ object Form1: TForm1
         Top = 234
         Width = 190
         Height = 21
+        Enabled = False
         ReadOnly = True
         TabOrder = 2
       end
@@ -870,6 +872,7 @@ object Form1: TForm1
     object tsRelVendas: TTabSheet
       Caption = 'Relat'#243'rio de Vendas'
       ImageIndex = 7
+      OnContextPopup = tsRelVendasContextPopup
       OnShow = tsRelVendasShow
       object Label27: TLabel
         Left = 3
@@ -961,6 +964,7 @@ object Form1: TForm1
       Caption = 'Relat'#243'rios'
       object mnRelVendas: TMenuItem
         Caption = 'Vendas'
+        OnClick = mnRelVendasClick
       end
     end
     object mnConfiguracoes: TMenuItem
@@ -1011,7 +1015,7 @@ object Form1: TForm1
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 44061.900997870400000000
-    ReportOptions.LastChange = 44061.921146724540000000
+    ReportOptions.LastChange = 44061.947982453700000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1211,36 +1215,8 @@ object Form1: TForm1
         Height = 26.456710000000000000
         Top = 151.181200000000000000
         Width = 718.110700000000000000
-        Condition = 'frxDBDataset1."NOME"'
-        object Memo7: TfrxMemoView
-          Align = baWidth
-          AllowVectorExport = True
-          Width = 718.110700000000000000
-          Height = 22.677180000000000000
-          DataField = 'NOME'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftBottom]
-          Memo.UTF8W = (
-            '[frxDBDataset1."NOME"]')
-          ParentFont = False
-          Style = 'Group header'
-          VAlign = vaCenter
-        end
-      end
-      object GroupHeader2: TfrxGroupHeader
-        FillType = ftBrush
-        Frame.Typ = []
-        Height = 26.456710000000000000
-        Top = 200.315090000000000000
-        Width = 718.110700000000000000
         Condition = 'frxDBDataset1."DATA"'
-        object Memo8: TfrxMemoView
+        object Memo7: TfrxMemoView
           Align = baWidth
           AllowVectorExport = True
           Width = 718.110700000000000000
@@ -1256,6 +1232,34 @@ object Form1: TForm1
           Frame.Typ = [ftBottom]
           Memo.UTF8W = (
             '[frxDBDataset1."DATA"]')
+          ParentFont = False
+          Style = 'Group header'
+          VAlign = vaCenter
+        end
+      end
+      object GroupHeader2: TfrxGroupHeader
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 26.456710000000000000
+        Top = 200.315090000000000000
+        Width = 718.110700000000000000
+        Condition = 'frxDBDataset1."NOME"'
+        object Memo8: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 22.677180000000000000
+          DataField = 'NOME'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftBottom]
+          Memo.UTF8W = (
+            '[frxDBDataset1."NOME"]')
           ParentFont = False
           Style = 'Group header'
           VAlign = vaCenter
